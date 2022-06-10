@@ -25,8 +25,6 @@ public class MyfirstspringtestApplication {
 	@Autowired
 	private ActorRepository actorRepository;
 
-// Funny joke here
-	//Second funny
 
 
 	//@Autowired

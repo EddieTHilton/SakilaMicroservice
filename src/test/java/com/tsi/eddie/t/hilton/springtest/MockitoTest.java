@@ -50,7 +50,7 @@ public class MockitoTest {
 
     }
 
-    /*
+
     @Test
     public void testAddActor(){
         Actor testActor = new Actor("Test", "Testerson");
@@ -59,8 +59,14 @@ public class MockitoTest {
 
         ArgumentCaptor<Actor> actorArgumentCaptor = ArgumentCaptor.forClass(Actor.class); //catches actor going into mock repository
 
+        verify(actorRepository).save(actorArgumentCaptor.capture());
+        //actorArgumentCaptor.getValue();
+
+        Assertions.assertEquals(expected, actual, "Actor not added.");
 
     }
-    */
+
+
+
 
 }
