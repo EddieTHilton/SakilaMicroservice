@@ -18,7 +18,6 @@ public class addActorStepDef {
     @Mock
     ActorRepository actorRepository;
 
-    MyfirstspringtestApplication myfirstspringtestApplication = new MyfirstspringtestApplication(actorRepository);
 
     Actor actor = new Actor("", "");
 
@@ -26,7 +25,7 @@ public class addActorStepDef {
     @Given("I have actor first name, last name")
     public void i_have_actor_first_name_last_name() {
 
-        actorRepository = mock(ActorRepository.class);
+
 
 
 
@@ -45,6 +44,8 @@ public class addActorStepDef {
     }
     @Then("Actor {string} {string} will be added to database")
     public void actor_will_be_added_to_database(String string, String string2) {
+        actorRepository = mock(ActorRepository.class);
+        MyfirstspringtestApplication myfirstspringtestApplication = new MyfirstspringtestApplication(actorRepository);
 
         Assertions.assertEquals(actor.getFirst_name(), string, "First name does not match expected.");
         Assertions.assertEquals(actor.getLast_name(), string2, "Last name does not match expected.");
