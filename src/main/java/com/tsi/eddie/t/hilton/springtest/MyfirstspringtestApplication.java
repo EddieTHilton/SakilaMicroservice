@@ -25,6 +25,9 @@ public class MyfirstspringtestApplication {
 	@Autowired
 	private ActorRepository actorRepository;
 
+	@Autowired
+	private FilmRepository filmRepository;
+
 
 
 	//@Autowired
@@ -36,9 +39,10 @@ public class MyfirstspringtestApplication {
 
 	}
 
-	public MyfirstspringtestApplication(ActorRepository actorRepository){
+	public MyfirstspringtestApplication(ActorRepository actorRepository, FilmRepository filmRepository){
 
 		this.actorRepository = actorRepository;
+		this.filmRepository = filmRepository;
 
 	}
 

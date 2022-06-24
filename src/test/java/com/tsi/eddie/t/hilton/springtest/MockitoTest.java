@@ -21,12 +21,14 @@ public class MockitoTest {
 
     @Mock
     private ActorRepository actorRepository;
+    @Mock
+    private FilmRepository filmRepository;
 
     @BeforeEach
     public void Setup(){
 
         actorRepository = mock(ActorRepository.class);
-        myfirstspringtestApplication = new MyfirstspringtestApplication(actorRepository);
+        myfirstspringtestApplication = new MyfirstspringtestApplication(actorRepository, filmRepository);
 
     }
 
