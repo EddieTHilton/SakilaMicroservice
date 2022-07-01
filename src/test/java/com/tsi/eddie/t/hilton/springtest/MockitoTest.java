@@ -28,6 +28,8 @@ public class MockitoTest {
     public void Setup(){
 
         actorRepository = mock(ActorRepository.class);
+        filmRepository = mock(FilmRepository.class);
+
         myfirstspringtestApplication = new MyfirstspringtestApplication(actorRepository, filmRepository);
 
     }
@@ -36,6 +38,13 @@ public class MockitoTest {
     public void testGetAllActors(){
         myfirstspringtestApplication.getAllActors();
         verify(actorRepository).findAll(); //verify takes mock object and checks that specified changes are made
+
+    }
+
+    @Test
+    public void testGetAllFilms(){
+        myfirstspringtestApplication.getAllFilms();
+        verify(filmRepository).findAll(); //verify takes mock object and checks that specified changes are made
 
     }
 
