@@ -13,7 +13,7 @@ import java.util.List;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class addFlimStepDef {
+public class addFilmStepDef {
 
     @Mock
     ActorRepository actorRepository;
