@@ -51,6 +51,9 @@ public class MockitoTest {
     @Test
     public void testGetActorById(){
         Actor testActor = new Actor("Test","Testerson");
+        testActor.setFirst_name("Test");
+        testActor.setLast_name("Testrson");
+
         testActor.setActor_id(1);
         when(actorRepository.findById(1)).thenReturn(Optional.of(testActor));
 
@@ -65,6 +68,15 @@ public class MockitoTest {
     public void testGetFilmById(){
         Film testFilm = new Film("Test Movie", "Descriptive description.", 9099, 01.01, 1, 01.01, "?", "Features");
         testFilm.setFilm_id(1);
+        testFilm.setTitle("Test Movie");
+        testFilm.setDescription("Descriptive description.");
+        testFilm.setRelease_year(9099);
+        testFilm.setRental_rate(01.01);
+        testFilm.setLength(1);
+        testFilm.setReplacement_cost(01.01);
+        testFilm.setRating("?");
+        testFilm.setSpecial_features("Features");
+
         when(filmRepository.findById(1)).thenReturn(Optional.of(testFilm));
 
         Film actual = myfirstspringtestApplication.getFilmById(testFilm.getFilm_id()).getBody();
