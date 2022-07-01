@@ -61,6 +61,19 @@ public class MockitoTest {
 
     }
 
+    @Test
+    public void testGetFilmById(){
+        Film testFilm = new Film("Test Movie", "Descriptive description.", 9099, 01.01, 1, 01.01, "?", "Features");
+        testFilm.setFilm_id(1);
+        when(filmRepository.findById(1)).thenReturn(Optional.of(testFilm));
+
+        Film actual = myfirstspringtestApplication.getFilmById(testFilm.getFilm_id()).getBody();
+        Film expected = testFilm;
+
+        Assertions.assertEquals(expected, actual, "Actor with ID not found.");
+
+    }
+
 
     @Test
     public void testAddActor(){
