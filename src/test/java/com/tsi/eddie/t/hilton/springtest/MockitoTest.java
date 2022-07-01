@@ -70,7 +70,7 @@ public class MockitoTest {
         Film actual = myfirstspringtestApplication.getFilmById(testFilm.getFilm_id()).getBody();
         Film expected = testFilm;
 
-        Assertions.assertEquals(expected, actual, "Actor with ID not found.");
+        Assertions.assertEquals(expected, actual, "Film with ID not found.");
 
     }
 
@@ -87,6 +87,21 @@ public class MockitoTest {
         //actorArgumentCaptor.getValue();
 
         Assertions.assertEquals(expected, actual, "Actor not added.");
+
+    }
+
+    @Test
+    public void testAddFilm(){
+        Film testFilm = new Film("Test Movie", "Descriptive description.", 9099, 01.01, 1, 01.01, "?", "Features");
+        String expected = "Added film, saved.";
+        String actual = myfirstspringtestApplication.addFilm(testFilm.getTitle(), testFilm.getDescription(), testFilm.getRelease_year(), testFilm.getRental_rate(), testFilm.getLength(), testFilm.getReplacement_cost(), testFilm.getRating(), testFilm.getSpecial_features());
+
+        ArgumentCaptor<Film> filmArgumentCaptor = ArgumentCaptor.forClass(Film.class); //catches actor going into mock repository
+
+        verify(filmRepository).save(filmArgumentCaptor.capture());
+        //actorArgumentCaptor.getValue();
+
+        Assertions.assertEquals(expected, actual, "Film not added.");
 
     }
 
